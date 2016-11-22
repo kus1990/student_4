@@ -1,0 +1,174 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class UlmartTestSec {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "https://www.ulmart.ru/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testUlmartTestSec() throws Exception {
+    driver.get(baseUrl + "/");
+    try {
+      assertTrue(isElementPresent(By.cssSelector("div.b-dropdown__body__h &gt; div.b-dropdown__body__h")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.id("searchField")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Спорт и Туризм']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Спорт и Туризм']")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//h1[text() = 'Спорт и Туризм']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Тренажеры']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Тренажеры']")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//span[text() ='Велотренажеры']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    try {
+      assertEquals("Портативные", driver.findElement(By.xpath("//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Портативные']")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Горизонтальные", driver.findElement(By.xpath("//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Горизонтальные']")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertEquals("Вертикальные", driver.findElement(By.xpath("//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Вертикальные']")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.xpath("//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Вертикальные']")).click();
+    try {
+      assertEquals("", driver.findElement(By.xpath("//h1[text() = 'Вертикальные']")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    try {
+      assertTrue(isElementPresent(By.xpath("//div[@class = 'col-main-section b-products']")));
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    // ERROR: Caught exception [ERROR: Unsupported command [getEval | (window.document.getElementById('catalogGoodsBlock').querySelectorAll('section')[0]).querySelector('div > .must_be_href').getAttribute('href') | ]]
+    // ERROR: Caught exception [ERROR: Unsupported command [openWindow | ${nphref} | 10]]
+    // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | 10 | ]]
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//li[contains(@class,'b-art')]/span[contains(@class,'b-art__num')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    try {
+      assertEquals("3419267", driver.findElement(By.xpath("//li[contains(@class,'b-art')]/span[contains(@class,'b-art__num')]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    // ERROR: Caught exception [ERROR: Unsupported command [getEval | //h1 | ]]
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//*[@id='addToCart_btn']"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//*[@id='addToCart_btn']")).click();
+    try {
+      assertEquals("1", driver.findElement(By.xpath("//*[@id='bottom-cart']/span[2]")).getText());
+    } catch (Error e) {
+      verificationErrors.append(e.toString());
+    }
+    driver.findElement(By.xpath("//*[@id='bottom-cart']")).click();
+    for (int second = 0;; second++) {
+    	if (second >= 60) fail("timeout");
+    	try { if (isElementPresent(By.xpath("//button[contains(@class,'doClearCart')]"))) break; } catch (Exception e) {}
+    	Thread.sleep(1000);
+    }
+
+    driver.findElement(By.xpath("//button[contains(@class,'doClearCart')]")).click();
+  }
+
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}

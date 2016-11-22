@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://www.ulmart.ru/" />
+<title>task_3</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">task_3</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=div.b-dropdown__body__h &amp;gt; div.b-dropdown__body__h</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=searchField</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Спорт и Туризм']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Спорт и Туризм']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//h1[text() = 'Спорт и Туризм']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Тренажеры']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Тренажеры']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[text() ='Велотренажеры']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Портативные']</td>
+	<td>Портативные</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Горизонтальные']</td>
+	<td>Горизонтальные</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//li[contains(@class,'b-list__item_bigger')]/a[@data-gtm-eventcontent = 'Велотренажеры']/following::li/a/span[text() ='Вертикальные']</td>
+	<td>Вертикальные</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//li[contains(@class, 'b-list__item')]/a[@data-gtm-eventcontent = 'Вертикальные']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//h1[text() = 'Вертикальные']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@class = 'col-main-section b-products']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>(window.document.getElementById('catalogGoodsBlock').querySelectorAll('section')[0]).querySelector('div &gt; .must_be_href').getAttribute('href')</td>
+	<td>nphref</td>
+</tr>
+<tr>
+	<td>openWindow</td>
+	<td>${nphref}</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//li[contains(@class,'b-art')]/span[contains(@class,'b-art__num')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//li[contains(@class,'b-art')]/span[contains(@class,'b-art__num')]</td>
+	<td>3419267</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>//h1</td>
+	<td>productName</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//*[@id='addToCart_btn']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//*[@id='addToCart_btn']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//*[@id='bottom-cart']/span[2]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//*[@id='bottom-cart']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//button[contains(@class,'doClearCart')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//button[contains(@class,'doClearCart')]</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
