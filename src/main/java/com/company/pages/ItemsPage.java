@@ -16,25 +16,11 @@ public class ItemsPage extends BasePage {
         js = (JavascriptExecutor) driver;
     }
 
-    private String pageName;
-    @FindBy(xpath="(.//*[@id='b-dropdown-catalog-menu']//ul[contains(@class,'b-list_catalog-menu')])[1]")
-    private WebElement listSideMenu;
-
-    @FindBy(id="searchField")
-    private WebElement searchInputField;
-
-    @FindBy(id="mainSearchButton")
-    private WebElement searchInputBut;
-
     @FindBy(xpath="//h1")
     private WebElement pageHeader;
 
     @FindBy(xpath="//*[@id='catalogGoodsBlock'][contains(@class,'b-products__list')]")
     private WebElement itemList;
-
-    public void setFindText(String textSearch){
-        searchInputField.sendKeys(textSearch);
-    }
 
     public void clickToMenuLink(String linkName,WebDriver driver){
         WebElement clickPart = listSideMenu.findElement(By.xpath("//li/a[@data-gtm-eventcontent = '" + linkName +"']"));
@@ -106,12 +92,4 @@ public class ItemsPage extends BasePage {
         return returnMassage;
     }
 
-    public void setAttribute(WebElement element, String attName, String attValue) {
-        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);",
-                element, attName, attValue);
-    }
-
-    public void clickFindText(){
-        searchInputBut.click();
-    }
 }

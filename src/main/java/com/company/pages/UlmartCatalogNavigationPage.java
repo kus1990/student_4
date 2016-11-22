@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.StringTokenizer;
 import java.util.concurrent.TimeUnit;
-
 
 public class UlmartCatalogNavigationPage extends BasePage {
     public UlmartCatalogNavigationPage(WebDriver driver){
@@ -17,34 +15,14 @@ public class UlmartCatalogNavigationPage extends BasePage {
         WebDriverWait wait = new WebDriverWait(driver, 1000);
     }
 
-    private String pageName;
-    @FindBy(xpath="(.//*[@id='b-dropdown-catalog-menu']//ul[contains(@class,'b-list_catalog-menu')])[1]")
-    private WebElement listSideMenu;
-
-    @FindBy(id="searchField")
-    private WebElement searchInputField;
-
-    @FindBy(id="mainSearchButton")
-    private WebElement searchInputBut;
-
     @FindBy(xpath="//h1")
     private WebElement pageHeader;
 
     @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]")
     private WebElement catalogList;
 
-    public void setFindText(String textSearch){
-        searchInputField.sendKeys(textSearch);
-    }
-
-    public void clickToMenuLink(String linkName,WebDriver driver){
-        WebElement clickPart = listSideMenu.findElement(By.xpath("//li/a[@data-gtm-eventcontent = '" + linkName +"']"));
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0," + clickPart.getLocation().y + ")");
-        clickPart.click();
-    }
-
     public boolean checkHeader(String hName){
-        return this.pageHeader.getText().equals(hName);
+        return pageHeader.getText().equals(hName);
     }
 
     public void clickToPart(String linkName,WebDriver driver){
@@ -97,8 +75,5 @@ public class UlmartCatalogNavigationPage extends BasePage {
             returnMassage +="Каталог отсутствует на " + pageName + "!\n";
         }
         return returnMassage;
-    }
-    public void clickFindText(){
-        searchInputBut.click();
     }
 }
