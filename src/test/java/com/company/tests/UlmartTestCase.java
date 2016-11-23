@@ -1,31 +1,11 @@
 package com.company.tests;
 
+import com.company.base.BaseTest;
 import com.company.pages.*;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import com.company.helpers.StaticDrivers;
 
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
-
-import static org.junit.Assert.fail;
-
-public class UlmartTestCase {
-  private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
-  private static Logger log = Logger.getLogger(UlmartTestCase.class.getName());
-
-  @Before
-  public void setUp() throws Exception {
-    driver = StaticDrivers.GetDriver();
-    baseUrl = "https://www.ulmart.ru/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
+public class UlmartTestCase extends BaseTest {
 
   @Test
   public void ulmartTest() throws Exception {
@@ -68,12 +48,4 @@ public class UlmartTestCase {
     }
   }
 
-  @After
-  public void tearDown() throws Exception {
-    driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
 }
