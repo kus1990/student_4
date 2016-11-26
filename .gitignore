@@ -1,0 +1,33 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.iml
+*.log
+*.pydevproject
+.project
+.metadata
+.svn/
+targetStaging/
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+.idea/
+.idea
+/target/
+*.classpath
+*.project
+*.settings
