@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/aut.iml" filepath="$PROJECT_DIR$/aut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UlmartTest.iml" filepath="$PROJECT_DIR$/UlmartTest.iml" />
     </modules>
   </component>
 </project>

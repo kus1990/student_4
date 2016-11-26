@@ -22,11 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="aut" />
+        <module name="GoogleLoginSerenityBdd" />
+        <module name="UlmartTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="aut" target="1.5" />
+      <module name="GoogleLoginSerenityBdd" target="1.5" />
+      <module name="UlmartTest" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
