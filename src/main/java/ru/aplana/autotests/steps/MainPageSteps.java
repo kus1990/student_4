@@ -1,10 +1,15 @@
 package ru.aplana.autotests.steps;
 
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
 import ru.aplana.autotests.pages.CatalogPage;
 import ru.aplana.autotests.pages.ItemListPage;
 import ru.aplana.autotests.pages.ItemPage;
 import ru.aplana.autotests.pages.MainPage;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainPageSteps {
 
@@ -12,6 +17,17 @@ public class MainPageSteps {
     ItemPage itemPage;
     ItemListPage itemListPage;
     CatalogPage catalogPage;
+
+    WebDriver driver;
+
+    @Before
+    public void setUpBrowser() throws Exception {
+
+        String workingDir = System.getProperty("user.dir");
+        String baseUrl = "https://www.ulmart.com";
+        driver.get(baseUrl);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
 
 
     @Step("Проверить элементы главной страницы")

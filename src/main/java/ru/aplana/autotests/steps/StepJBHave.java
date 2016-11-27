@@ -22,13 +22,7 @@ public class StepJBHave {
 
     @Given("открыта главная страница")
     public void openHomePage(){
-        String drw = PropertyParser.loadProperty("driverManage");
-        browsers ntr = browsers.valueOf(drw);
-        String workingDir = System.getProperty("user.dir");
 
-
-        String baseUrl = PropertyParser.loadProperty("stageURL");
-        ThucydidesWebDriverSupport.getDriver().get(baseUrl);
     }
 
     @Then("проверить элементы главной страницы")
