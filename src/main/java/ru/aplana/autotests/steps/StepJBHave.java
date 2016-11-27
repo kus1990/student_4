@@ -26,14 +26,6 @@ public class StepJBHave {
         browsers ntr = browsers.valueOf(drw);
         String workingDir = System.getProperty("user.dir");
 
-       switch (ntr) {
-            case chrome:
-                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
-            case firefox:
-                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
-            default:
-                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
-        }
 
         String baseUrl = PropertyParser.loadProperty("stageURL");
         ThucydidesWebDriverSupport.getDriver().get(baseUrl);
