@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 
 
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,6 +13,7 @@ import ru.aplana.autotests.pages.ItemListPage;
 import ru.aplana.autotests.pages.ItemPage;
 import ru.aplana.autotests.pages.MainPage;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class MainPageSteps {
@@ -21,11 +23,18 @@ public class MainPageSteps {
     ItemListPage itemListPage;
     CatalogPage catalogPage;
 
+    @Managed(driver = "firefox")
     WebDriver driver;
 
-    @BeforeClass
-    public void setUpBrowser() throws Exception {
-
+    @Step("test")
+    public void setUpBrowser(){
+        String workingDir = System.getProperty("user.dir");
+        String baseUrl = "https://www.ulmart.ru";
+        System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator +"geckodriver");
+        driver = new FirefoxDriver();
+        driver.get(baseUrl);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Assert.assertTrue(driver.getCurrentUrl().contains(baseUrl));
     }
 
 

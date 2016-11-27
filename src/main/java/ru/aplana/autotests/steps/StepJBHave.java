@@ -21,21 +21,13 @@ public class StepJBHave {
         firefox
     }
 
-    @Managed(driver = "firefox")
-    WebDriver driver;
 
     @Steps
     MainPageSteps mainSteps;
 
     @Given("открыта главная страница")
     public void openHomePage(){
-        String workingDir = System.getProperty("user.dir");
-        String baseUrl = "https://www.ulmart.ru";
-        System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator +"geckodriver");
-        driver = new FirefoxDriver();
-        driver.get(baseUrl);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        Assert.assertTrue(driver.getCurrentUrl().contains(baseUrl));
+        mainSteps.setUpBrowser();
 
     }
 
