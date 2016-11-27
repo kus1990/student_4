@@ -1,7 +1,6 @@
 Meta:
 
-
-Scenario: Ulmart test
+Scenario: Тест юлмарта
 
 Given открыта главная страница
 Then проверить элементы главной страницы
