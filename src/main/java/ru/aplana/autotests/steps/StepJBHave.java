@@ -27,7 +27,7 @@ public class StepJBHave {
     @Given("открыта главная страница")
     public void openHomePage(){
         String workingDir = System.getProperty("user.dir");
-        String baseUrl = "https://www.ulmart.com";
+        String baseUrl = "https://www.ulmart.ru";
         System.setProperty("webdriver.firefox.marionette", workingDir + "/drivers/geckodriver");
         driver = new FirefoxDriver();
         driver.get(baseUrl);
