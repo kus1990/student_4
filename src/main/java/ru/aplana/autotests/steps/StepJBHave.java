@@ -5,11 +5,13 @@ import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.aplana.autotests.halpers.PropertyParser;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class StepJBHave {
     public enum browsers {
@@ -17,11 +19,18 @@ public class StepJBHave {
         firefox
     }
 
+    WebDriver driver;
+
     @Steps
     MainPageSteps mainSteps;
 
     @Given("открыта главная страница")
     public void openHomePage(){
+        String workingDir = System.getProperty("user.dir");
+        String baseUrl = "https://www.ulmart.com";
+        driver = new FirefoxDriver();
+        driver.get(baseUrl);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     }
 

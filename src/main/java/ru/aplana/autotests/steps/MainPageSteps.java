@@ -2,7 +2,9 @@ package ru.aplana.autotests.steps;
 
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
-import org.junit.Before;
+
+
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.aplana.autotests.pages.CatalogPage;
@@ -21,14 +23,9 @@ public class MainPageSteps {
 
     WebDriver driver;
 
-    @Before
+    @BeforeClass
     public void setUpBrowser() throws Exception {
 
-        String workingDir = System.getProperty("user.dir");
-        String baseUrl = "https://www.ulmart.com";
-        driver = new FirefoxDriver();
-        driver.get(baseUrl);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
