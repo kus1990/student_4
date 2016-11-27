@@ -1,5 +1,6 @@
 package ru.aplana.autotests.steps;
 
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.jbehave.core.annotations.Given;
@@ -19,6 +20,7 @@ public class StepJBHave {
         firefox
     }
 
+    @Managed(driver = "firefox")
     WebDriver driver;
 
     @Steps
