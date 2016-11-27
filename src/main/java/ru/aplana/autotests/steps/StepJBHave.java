@@ -28,6 +28,7 @@ public class StepJBHave {
     public void openHomePage(){
         String workingDir = System.getProperty("user.dir");
         String baseUrl = "https://www.ulmart.com";
+        System.setProperty("webdriver.firefox.marionette", workingDir + "/drivers/geckodriver");
         driver = new FirefoxDriver();
         driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
