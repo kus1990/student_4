@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.aplana.autotests.pages.CatalogPage;
 import ru.aplana.autotests.pages.ItemListPage;
 import ru.aplana.autotests.pages.ItemPage;
@@ -25,6 +26,7 @@ public class MainPageSteps {
 
         String workingDir = System.getProperty("user.dir");
         String baseUrl = "https://www.ulmart.com";
+        driver = new FirefoxDriver();
         driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
