@@ -23,8 +23,8 @@ public class MainPageSteps {
     ItemListPage itemListPage;
     CatalogPage catalogPage;
 
-    @Managed(driver = "firefox")
-    WebDriver driver;
+    @Managed(uniqueSession = true, driver="firefox")
+    private WebDriver driver;
 
     @Step("test")
     public void setUpBrowser(){
@@ -35,6 +35,7 @@ public class MainPageSteps {
         driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Assert.assertTrue(driver.getCurrentUrl().contains(baseUrl));
+
     }
 
 
