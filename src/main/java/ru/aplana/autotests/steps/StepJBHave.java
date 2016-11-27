@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.aplana.autotests.halpers.PropertyParser;
 
+import java.io.File;
+
 public class StepJBHave {
     public enum browsers {
         chrome,
@@ -24,14 +26,14 @@ public class StepJBHave {
         browsers ntr = browsers.valueOf(drw);
         String workingDir = System.getProperty("user.dir");
 
-      /*  switch (ntr) {
+       switch (ntr) {
             case chrome:
-                System.setProperty("webdriver.chrome.driver", workingDir + "/drivers/chromedriver");
+                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
             case firefox:
-                System.setProperty("webdriver.firefox.marionette", workingDir + "/drivers/geckodriver");
+                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
             default:
-                System.setProperty("webdriver.chrome.driver", workingDir + "/drivers/chromedriver");
-        }*/
+                System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator + "geckodriver");
+        }
 
         String baseUrl = PropertyParser.loadProperty("stageURL");
         ThucydidesWebDriverSupport.getDriver().get(baseUrl);
