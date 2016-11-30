@@ -25,6 +25,7 @@ public class StepJBHave {
     @Steps
     MainPageSteps mainSteps;
 
+
     @Given("открыта главная страница")
     public void openHomePage(){
         mainSteps.setUpBrowser();

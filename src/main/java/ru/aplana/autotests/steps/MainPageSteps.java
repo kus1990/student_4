@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Step;
 
 
+import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +24,7 @@ public class MainPageSteps {
     ItemListPage itemListPage;
     CatalogPage catalogPage;
 
-    @Managed(uniqueSession = true, driver="firefox")
+   /* @Managed(uniqueSession = true, driver="firefox")
     private WebDriver driver;
 
     @Step("test")
@@ -36,7 +37,16 @@ public class MainPageSteps {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         Assert.assertTrue(driver.getCurrentUrl().contains(baseUrl));
 
-    }
+    }*/
+
+   @Step("Открыта главная страница")
+   public void setUpBrowser(){
+       String workingDir = System.getProperty("user.dir");
+       String baseUrl = "https://www.ulmart.ru";
+       System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator +"geckodriver");
+       ThucydidesWebDriverSupport.getDriver().get(baseUrl);
+       ThucydidesWebDriverSupport.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+   }
 
 
     @Step("Проверить элементы главной страницы")
