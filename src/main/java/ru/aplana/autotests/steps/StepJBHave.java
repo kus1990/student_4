@@ -21,15 +21,12 @@ public class StepJBHave {
         firefox
     }
 
-
     @Steps
     MainPageSteps mainSteps;
-
 
     @Given("открыта главная страница")
     public void openHomePage(){
         mainSteps.setUpBrowser();
-
     }
 
     @Then("проверить элементы главной страницы")

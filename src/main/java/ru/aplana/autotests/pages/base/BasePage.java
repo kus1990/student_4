@@ -12,6 +12,8 @@ import org.openqa.selenium.WebElement;
  */
 public class BasePage extends PageObject {
 
+    protected JavascriptExecutor js = (JavascriptExecutor) ThucydidesWebDriverSupport.getDriver();
+
     @FindBy(xpath="//h1")
     private WebElement pageHeader;
 
@@ -60,7 +62,15 @@ public class BasePage extends PageObject {
     }
 
     public void setAttribute(WebElement element, String attName, String attValue) {
-        ((JavascriptExecutor) ThucydidesWebDriverSupport.getDriver()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);",
+        js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);",
                 element, attName, attValue);
+    }
+
+    public void scrollToElement(WebElement elem){
+        js.executeScript("window.scrollTo(" + elem.getLocation().x  +"," + elem.getLocation().y + ")");
+    }
+
+    public void clickToPoint(int x, int y){
+        // Wait wait wait
     }
 }

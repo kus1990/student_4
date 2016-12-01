@@ -17,6 +17,9 @@ public class CatalogPage extends BasePage {
     @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]/div/ul/li/a[@data-gtm-eventcontent='Горнолыжный спорт']")
     private WebElement skySportLink;
 
+    @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]/div/ul/li/a[@data-gtm-eventcontent='Горные лыжи']")
+    private WebElement skySportPartLink;
+
     public String clickToWinterSport(){
         try {
             wintertSportLink.click();
@@ -31,6 +34,15 @@ public class CatalogPage extends BasePage {
     public String clickToSkySport(){
         try {
             skySportLink.click();
+            return "Кнопка горнолыжный спорт учпешно нажата!\n";
+        } catch (NullPointerException exp){
+            return "Кнопка горнолыжный спорт не нажата, возможно элемент не определён!\n";
+        }
+    }
+
+    public String clickToSkyPart(){
+        try {
+            skySportPartLink.click();
             return "Кнопка горнолыжный спорт учпешно нажата!\n";
         } catch (NullPointerException exp){
             return "Кнопка горнолыжный спорт не нажата, возможно элемент не определён!\n";

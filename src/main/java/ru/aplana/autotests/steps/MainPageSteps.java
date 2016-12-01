@@ -44,8 +44,9 @@ public class MainPageSteps {
        String workingDir = System.getProperty("user.dir");
        String baseUrl = "https://www.ulmart.ru";
        System.setProperty("webdriver.firefox.marionette", workingDir + File.separator + "drivers" + File.separator +"geckodriver");
+       ThucydidesWebDriverSupport.getDriver().manage().window().maximize();
+       ThucydidesWebDriverSupport.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
        ThucydidesWebDriverSupport.getDriver().get(baseUrl);
-       ThucydidesWebDriverSupport.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
    }
 
 
@@ -112,6 +113,10 @@ public class MainPageSteps {
         else if(partname.equals("горнолыжный спорт"))
         {
             return catalogPage.clickToSkySport();
+        }
+        else if(partname.equals("горные лыжи"))
+        {
+            return catalogPage.clickToSkyPart();
         }
         return "ошибка";
     }

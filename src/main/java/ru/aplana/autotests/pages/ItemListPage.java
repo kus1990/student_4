@@ -16,9 +16,6 @@ public class ItemListPage extends BasePage {
     public void clickToLastElement(){
         try {
             setAttribute(lastItemLink,"target","_self");
-            System.out.println(lastItemLink);
-            System.out.println(lastItemLink.getAttribute("target"));
-            System.out.println(lastItemLink.getAttribute("href"));
             lastItemLink.click();
         } catch (NullPointerException exp){
         }
