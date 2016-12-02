@@ -1,51 +1,45 @@
 package ru.aplana.autotests.pages;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
-import org.junit.Assert;
+import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.openqa.selenium.WebElement;
 import ru.aplana.autotests.pages.base.BasePage;
 
+import java.util.List;
+
 public class CatalogPage extends BasePage {
 
-    @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]")
-    private WebElement catalogList;
+    @FindBy(xpath="//input[@id='glf-pricefrom-var']")
+    private WebElement priceFrom;
 
-    @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]/div/ul/li/a[@data-gtm-eventcontent=\"Зимний спорт\"]")
-    private WebElement wintertSportLink;
+    @FindBy(xpath="//div[@class='n-filter-panel-aside__apply']/button")
+    private WebElement applyBtn;
 
-    @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]/div/ul/li/a[@data-gtm-eventcontent='Горнолыжный спорт']")
-    private WebElement skySportLink;
-
-    @FindBy(xpath="//div[contains(@class,'col-main-section')]/section[contains(@class,'h-sect-margin1-bottom')]/div[contains(@class,'row')]/div/ul/li/a[@data-gtm-eventcontent='Горные лыжи']")
-    private WebElement skySportPartLink;
-
-    public String clickToWinterSport(){
-        try {
-            wintertSportLink.click();
-            System.out.println("good");
-            return "Кнопка зимний спорт учпешно нажата!\n";
-        } catch (NullPointerException exp){
-            System.out.println("error");
-            return "Кнопка зимний спорт не нажата, возможно элемент не определён!\n";
+    public String clickToApplyPart(){
+        if(applyBtn.isDisplayed()){
+            applyBtn.click();
+            return "Кнопка маркет нажата!\n";
+        } else{
+            return "Кнопка маркет не нажата, возможно элемент не определён!\n";
         }
     }
 
-    public String clickToSkySport(){
-        try {
-            skySportLink.click();
-            return "Кнопка горнолыжный спорт учпешно нажата!\n";
-        } catch (NullPointerException exp){
-            return "Кнопка горнолыжный спорт не нажата, возможно элемент не определён!\n";
+    public void setMinimumPrice(int price){
+        priceFrom.sendKeys(price + "");
+    }
+
+
+    public void complexClick(String linkName){
+            ThucydidesWebDriverSupport.getDriver().findElement(By.xpath("//span[contains(@class,'checkbox')]/label[text()='" + linkName + "']")).click();
+    }
+
+    public void setCompanyListByParam(String cList){
+        for(String retval : cList.split(",")){
+            this.complexClick(retval);
         }
     }
 
-    public String clickToSkyPart(){
-        try {
-            skySportPartLink.click();
-            return "Кнопка горнолыжный спорт учпешно нажата!\n";
-        } catch (NullPointerException exp){
-            return "Кнопка горнолыжный спорт не нажата, возможно элемент не определён!\n";
-        }
-    }
+
+
 }
